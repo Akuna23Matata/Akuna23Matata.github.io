@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhibo Hou - Researcher Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            background-color: #1E1E1E;
+            color: #D4D4D4;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Main Container */
+        .vs-code-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            background-color: #1E1E1E;
+        }
+
+        /* Title Bar */
+        .title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 32px;
+            background-color: #323233;
+            padding: 0 12px;
+            -webkit-app-region: drag;
+        }
+
+        .traffic-lights {
+            display: flex;
+            gap: 8px;
+        }
+
+        .traffic-light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .traffic-light.red { background-color: #FF5F56; }
+        .traffic-light.yellow { background-color: #FFBD2E; }
+        .traffic-light.green { background-color: #27C93F; }
+
+        .title-text {
+            color: #CCCCCC;
+            font-size: 13px;
+            font-weight: normal;
+        }
+
+        .title-spacer {
+            width: 80px;
+            height: 1px;
+        }
+
+        /* Main Area */
+        .main-area {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Activity Bar */
+        .activity-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 48px;
+            background-color: #333333;
+            padding: 12px 0;
+            gap: 8px;
+        }
+
+        .activity-icon {
+            width: 24px;
+            height: 24px;
+            color: #858585;
+        }
+
+        .activity-icon.active {
+            color: #FFFFFF;
+        }
+
+        /* Sidebar Explorer */
+        .sidebar-explorer {
+            width: 200px;
+            background-color: #252526;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            height: 35px;
+            padding: 0 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar-header-text {
+            color: #BBBBBB;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .file-tree {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 8px 0;
+            overflow-y: auto;
+        }
+
+        .folder-item, .file-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            height: 22px;
+            padding: 0 12px;
+            cursor: pointer;
+        }
+
+        .file-item {
+            padding-left: 28px;
+        }
+
+        .file-item.active {
+            background-color: #37373D;
+        }
+
+        .file-icon {
+            width: 14px;
+            height: 14px;
+            color: #519ABA;
+        }
+
+        .file-icon.image {
+            color: #A074C4;
+        }
+
+        .file-icon.text {
+            color: #6D8086;
+        }
+
+        .folder-name, .file-name {
+            font-size: 13px;
+            color: #CCCCCC;
+        }
+
+        .file-name.active {
+            color: #FFFFFF;
+        }
+
+        .chevron-icon {
+            width: 14px;
+            height: 14px;
+            color: #CCCCCC;
+        }
+
+        /* Content Area */
+        .content-area {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Editor Pane */
+        .editor-pane {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background-color: #1E1E1E;
+            overflow: hidden;
+        }
+
+        .tab-bar {
+            height: 35px;
+            background-color: #252526;
+            display: flex;
+            align-items: center;
+        }
+
+        .active-tab {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0 12px;
+            background-color: #1E1E1E;
+            gap: 8px;
+        }
+
+        .editor-content {
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Scroll Content - This is the scrollable area */
+        .scroll-content {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background-color: #1E1E1E;
+            padding: 32px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* Custom Scrollbar */
+        .scroll-content::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .scroll-content::-webkit-scrollbar-track {
+            background: #1E1E1E;
+        }
+
+        .scroll-content::-webkit-scrollbar-thumb {
+            background: #424242;
+            border-radius: 5px;
+        }
+
+        .scroll-content::-webkit-scrollbar-thumb:hover {
+            background: #4E4E4E;
+        }
+
+        /* Header Section */
+        .header-section {
+            display: flex;
+            gap: 32px;
+            width: 100%;
+        }
+
+        .photo-frame {
+            width: 140px;
+            height: 180px;
+            border-radius: 4px;
+            border: 3px solid #569CD6;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .name-title {
+            color: #4EC9B0;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            color: #CE9178;
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 24px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-icon {
+            width: 16px;
+            height: 16px;
+            color: #569CD6;
+        }
+
+        .contact-text {
+            color: #D4D4D4;
+            font-size: 13px;
+        }
+
+        .intro-paragraph {
+            color: #D4D4D4;
+            font-size: 13px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background-color: #3C3C3C;
+            width: 100%;
+        }
+
+        /* Section */
+        .section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-icon {
+            width: 24px;
+            height: 24px;
+            color: #C586C0;
+        }
+
+        .section-title {
+            color: #C586C0;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .section-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-left: 36px;
+        }
+
+        .section-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .item-title {
+            color: #569CD6;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .item-text {
+            color: #D4D4D4;
+            font-size: 13px;
+        }
+
+        .item-date {
+            color: #858585;
+            font-size: 12px;
+        }
+
+        /* Publication Item */
+        .pub-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .pub-venue {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pub-badge {
+            background-color: #264F78;
+            border-radius: 4px;
+            padding: 4px 8px;
+        }
+
+        .pub-badge-text {
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .pub-title {
+            color: #DCDCAA;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .pub-author {
+            font-size: 12px;
+        }
+
+        .pub-author.first {
+            color: #4EC9B0;
+        }
+
+        .pub-author.other {
+            color: #9CDCFE;
+        }
+
+        /* Interest Item */
+        .interest-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .interest-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .interest-bullet {
+            color: #569CD6;
+            font-size: 14px;
+        }
+
+        .interest-name {
+            color: #4EC9B0;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .interest-desc {
+            color: #D4D4D4;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Chat Panel */
+        .chat-panel {
+            width: 380px;
+            background-color: #1E1E1E;
+            border-left: 1px solid #3C3C3C;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            height: 48px;
+            background-color: #252526;
+            padding: 0 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .messages-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .message {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .message-avatar.assistant {
+            background-color: #C586C0;
+        }
+
+        .message-avatar.user {
+            background-color: #569CD6;
+        }
+
+        .avatar-icon {
+            width: 18px;
+            height: 18px;
+            color: #FFFFFF;
+        }
+
+        .message-bubble {
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-width: 260px;
+        }
+
+        .message-bubble.assistant {
+            background-color: #2D2D2D;
+        }
+
+        .message-bubble.user {
+            background-color: #264F78;
+        }
+
+        .message-text {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #D4D4D4;
+        }
+
+        .message-bubble.user .message-text {
+            color: #FFFFFF;
+        }
+
+        .input-area {
+            background-color: #252526;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .suggestions-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            height: 24px;
+            background-color: #007ACC;
+            padding: 0 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-left, .status-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-icon {
+            width: 14px;
+            height: 14px;
+            color: #FFFFFF;
+        }
+
+        .status-text {
+            color: #FFFFFF;
+            font-size: 12px;
+        }
+
+        .status-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="vs-code-container">
+        <!-- Title Bar -->
+        <div class="title-bar">
+            <div class="traffic-lights">
+                <div class="traffic-light red"></div>
+                <div class="traffic-light yellow"></div>
+                <div class="traffic-light green"></div>
+            </div>
+            <div class="title-text">zhibo_hou.py — VS Code</div>
+            <div class="title-spacer"></div>
+        </div>
+
+        <!-- Main Area -->
+        <div class="main-area">
+            <!-- Activity Bar -->
+            <div class="activity-bar">
+                <i data-lucide="files" class="activity-icon active"></i>
+                <i data-lucide="search" class="activity-icon"></i>
+                <i data-lucide="git-branch" class="activity-icon"></i>
+                <i data-lucide="bug" class="activity-icon"></i>
+                <i data-lucide="blocks" class="activity-icon"></i>
+            </div>
+
+            <!-- Sidebar Explorer -->
+            <div class="sidebar-explorer">
+                <div class="sidebar-header">
+                    <div class="sidebar-header-text">EXPLORER</div>
+                </div>
+                <div class="file-tree">
+                    <div class="folder-item">
+                        <i data-lucide="chevron-down" class="chevron-icon"></i>
+                        <div class="folder-name">researcher_webpage</div>
+                    </div>
+                    <div class="file-item active">
+                        <i data-lucide="file-code" class="file-icon"></i>
+                        <div class="file-name active">zhibo_hou.py</div>
+                    </div>
+                    <div class="file-item">
+                        <i data-lucide="file-code" class="file-icon"></i>
+                        <div class="file-name">publications.py</div>
+                    </div>
+                    <div class="file-item">
+                        <i data-lucide="file-code" class="file-icon"></i>
+                        <div class="file-name">projects.py</div>
+                    </div>
+                    <div class="file-item">
+                        <i data-lucide="image" class="file-icon image"></i>
+                        <div class="file-name">profile_photo.png</div>
+                    </div>
+                    <div class="file-item">
+                        <i data-lucide="file-text" class="file-icon text"></i>
+                        <div class="file-name">README.md</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Editor Pane -->
+                <div class="editor-pane">
+                    <div class="tab-bar">
+                        <div class="active-tab">
+                            <div class="title-text">zhibo_hou.py</div>
+                        </div>
+                    </div>
+                    <div class="editor-content">
+                        <!-- Scroll Content - This is the scrollable area -->
+                        <div class="scroll-content">
+                            <!-- Header Section -->
+                            <div class="header-section">
+                                <div class="photo-frame">
+                                    <img src="profile.png" alt="Zhibo Hou">
+                                </div>
+                                <div class="header-info">
+                                    <div class="name-title">Zhibo Hou</div>
+                                    <div class="tagline">Ph.D. Student @ UC Merced | AI Researcher</div>
+                                    <div class="contact-row">
+                                        <div class="contact-link">
+                                            <i data-lucide="mail" class="contact-icon"></i>
+                                            <div class="contact-text">zhiboh23@gmail.com</div>
+                                        </div>
+                                        <div class="contact-link">
+                                            <i data-lucide="github" class="contact-icon"></i>
+                                            <div class="contact-text">Akuna23Matata</div>
+                                        </div>
+                                        <div class="contact-link">
+                                            <i data-lucide="phone" class="contact-icon"></i>
+                                            <div class="contact-text">+1-765-337-0244</div>
+                                        </div>
+                                    </div>
+                                    <div class="intro-paragraph">
+                                        I am a second year Ph.D. student in the EECS department at UC Merced, advised by Prof. Wan Du. My research interests include Reinforcement Learning and LLM Post-Training.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <!-- Education Section -->
+                            <div class="section">
+                                <div class="section-header">
+                                    <i data-lucide="graduation-cap" class="section-icon"></i>
+                                    <div class="section-title">Education</div>
+                                </div>
+                                <div class="section-list">
+                                    <div class="section-item">
+                                        <div class="item-title">University of California, Merced</div>
+                                        <div class="item-text">Ph.D. Student, Electrical Engineering & Computer Science</div>
+                                        <div class="item-date">Aug. 2024 — Present</div>
+                                    </div>
+                                    <div class="section-item">
+                                        <div class="item-title">Purdue University</div>
+                                        <div class="item-text">Master of Science in Computer Engineering</div>
+                                        <div class="item-date">Aug. 2021 — Aug. 2023</div>
+                                    </div>
+                                    <div class="section-item">
+                                        <div class="item-title">Purdue University</div>
+                                        <div class="item-text">Bachelor of Science in Computer Engineering</div>
+                                        <div class="item-date">Aug. 2016 — Dec. 2020</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <!-- Publications Section -->
+                            <div class="section">
+                                <div class="section-header">
+                                    <i data-lucide="file-text" class="section-icon"></i>
+                                    <div class="section-title">Publications</div>
+                                </div>
+                                <div class="section-list">
+                                    <div class="pub-item">
+                                        <div class="pub-venue">
+                                            <div class="pub-badge">
+                                                <div class="pub-badge-text">ICLR 2026</div>
+                                            </div>
+                                        </div>
+                                        <div class="pub-title">Beyond Noisy-TVs: Noise-Robust Exploration Via Learning Progress Monitoring</div>
+                                        <div class="pub-authors">
+                                            <span class="pub-author first">Zhibo Hou</span>
+                                            <span class="pub-author other">, Zhiyu An, Wan Du</span>
+                                        </div>
+                                    </div>
+                                    <div class="pub-item">
+                                        <div class="pub-venue">
+                                            <div class="pub-badge">
+                                                <div class="pub-badge-text">L4DC 2025</div>
+                                            </div>
+                                        </div>
+                                        <div class="pub-title">Disentangling Uncertainties by Learning Compressed Data Representation</div>
+                                        <div class="pub-authors">
+                                            <span class="pub-author other">Zhiyu An, </span>
+                                            <span class="pub-author first">Zhibo Hou</span>
+                                            <span class="pub-author other">, Wan Du</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <!-- Research Interests Section -->
+                            <div class="section">
+                                <div class="section-header">
+                                    <i data-lucide="lightbulb" class="section-icon"></i>
+                                    <div class="section-title">Research Interests</div>
+                                </div>
+                                <div class="section-list">
+                                    <div class="interest-item">
+                                        <div class="interest-title">
+                                            <span class="interest-bullet">▸</span>
+                                            <div class="interest-name">Reinforcement Learning</div>
+                                        </div>
+                                        <div class="interest-desc">
+                                            Focus on efficient exploration in complex, sparse-reward, and noisy environments through intrinsic motivation signals.
+                                        </div>
+                                    </div>
+                                    <div class="interest-item">
+                                        <div class="interest-title">
+                                            <span class="interest-bullet">▸</span>
+                                            <div class="interest-name">Large Language Model Post-Training</div>
+                                        </div>
+                                        <div class="interest-desc">
+                                            Focus on LLM post-training methods, including reinforcement learning with human feedback (RLHF) and reinforcement learning via verifiable reward (RLVR).
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Panel -->
+                <div class="chat-panel">
+                    <div class="chat-header">
+                        <div class="chat-title">
+                            <div class="title-text">Chat</div>
+                        </div>
+                        <div class="chat-status">
+                            <div class="title-text">Online</div>
+                        </div>
+                    </div>
+                    <div class="messages-area">
+                        <div class="message">
+                            <div class="message-avatar assistant">
+                                <i data-lucide="bot" class="avatar-icon"></i>
+                            </div>
+                            <div class="message-bubble assistant">
+                                <div class="message-text">
+                                    Hello! I'm your AI research assistant. I can help you explore papers, explain concepts, or discuss your research ideas. What would you like to know?
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message user">
+                            <div class="message-bubble user">
+                                <div class="message-text">
+                                    Can you explain the attention mechanism in transformers?
+                                </div>
+                            </div>
+                            <div class="message-avatar user">
+                                <i data-lucide="user" class="avatar-icon"></i>
+                            </div>
+                        </div>
+                        <div class="message">
+                            <div class="message-avatar assistant">
+                                <i data-lucide="bot" class="avatar-icon"></i>
+                            </div>
+                            <div class="message-bubble assistant">
+                                <div class="message-text">
+                                    The attention mechanism allows the model to focus on different parts of the input sequence when producing each output. It computes:<br><br>
+                                    Attention(Q,K,V) = softmax(QK^T/√d)V<br><br>
+                                    Where Q, K, V are query, key, and value matrices.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-area">
+                        <div class="input-row">
+                            <!-- Input field would go here -->
+                        </div>
+                        <div class="suggestions-row">
+                            <!-- Suggestions would go here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-left">
+                <div class="status-item">
+                    <i data-lucide="git-branch" class="status-icon"></i>
+                    <div class="status-text">main</div>
+                </div>
+                <i data-lucide="refresh-cw" class="status-icon"></i>
+                <div class="status-group">
+                    <i data-lucide="circle-x" class="status-icon"></i>
+                    <div class="status-text">0</div>
+                    <i data-lucide="triangle-alert" class="status-icon"></i>
+                    <div class="status-text">0</div>
+                </div>
+            </div>
+            <div class="status-right">
+                <div class="status-text">Ln 24, Col 1</div>
+                <div class="status-text">Spaces: 4</div>
+                <div class="status-text">UTF-8</div>
+                <div class="status-text">Python</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lucide Icons Script -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

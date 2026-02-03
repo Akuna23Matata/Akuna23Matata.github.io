@@ -1,0 +1,1939 @@
+{
+  "version": "2.6",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": 0,
+      "y": 0,
+      "name": "Frame",
+      "clip": true,
+      "width": 800,
+      "height": 600,
+      "fill": "#FFFFFF",
+      "layout": "none"
+    },
+    {
+      "type": "frame",
+      "id": "OD10T",
+      "x": 0,
+      "y": 0,
+      "name": "VS Code Researcher Page",
+      "width": 1440,
+      "height": 900,
+      "fill": "#1E1E1E",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "S4ksJ",
+          "name": "Title Bar",
+          "width": "fill_container",
+          "height": 32,
+          "fill": "#323233",
+          "padding": [
+            0,
+            12
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "TKhHR",
+              "name": "trafficLights",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "cV7oO",
+                  "name": "redDot",
+                  "fill": "#FF5F56",
+                  "width": 12,
+                  "height": 12
+                },
+                {
+                  "type": "ellipse",
+                  "id": "iTFNR",
+                  "name": "yellowDot",
+                  "fill": "#FFBD2E",
+                  "width": 12,
+                  "height": 12
+                },
+                {
+                  "type": "ellipse",
+                  "id": "s9BiS",
+                  "name": "greenDot",
+                  "fill": "#27C93F",
+                  "width": 12,
+                  "height": 12
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "ACD79",
+              "name": "titleText",
+              "fill": "#CCCCCC",
+              "content": "zhibo_hou.py — VS Code",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "pgUjd",
+              "name": "spacer",
+              "width": 80,
+              "height": 1
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "TQ9qB",
+          "name": "Main Area",
+          "width": "fill_container",
+          "height": "fill_container",
+          "children": [
+            {
+              "type": "frame",
+              "id": "a8KHY",
+              "name": "Activity Bar",
+              "width": 48,
+              "height": "fill_container",
+              "fill": "#333333",
+              "layout": "vertical",
+              "gap": 8,
+              "padding": [
+                12,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "gsTuD",
+                  "name": "icon1",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "files",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "UvBWe",
+                  "name": "icon2",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "search",
+                  "iconFontFamily": "lucide",
+                  "fill": "#858585"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "oKtOt",
+                  "name": "icon3",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "git-branch",
+                  "iconFontFamily": "lucide",
+                  "fill": "#858585"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "PhziG",
+                  "name": "icon4",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "bug",
+                  "iconFontFamily": "lucide",
+                  "fill": "#858585"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "pMRXb",
+                  "name": "icon5",
+                  "width": 24,
+                  "height": 24,
+                  "iconFontName": "blocks",
+                  "iconFontFamily": "lucide",
+                  "fill": "#858585"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Gi10X",
+              "name": "Sidebar Explorer",
+              "width": 200,
+              "height": "fill_container",
+              "fill": "#252526",
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "tTbaf",
+                  "name": "sidebarHeader",
+                  "width": "fill_container",
+                  "height": 35,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Kdk63",
+                      "name": "explorerTitle",
+                      "fill": "#BBBBBB",
+                      "content": "EXPLORER",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "8hshS",
+                  "name": "fileTree",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "padding": [
+                    8,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "1ytds",
+                      "name": "folder1",
+                      "width": "fill_container",
+                      "height": 22,
+                      "gap": 6,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "GWioz",
+                          "name": "folderIcon1",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "chevron-down",
+                          "iconFontFamily": "lucide",
+                          "fill": "#CCCCCC"
+                        },
+                        {
+                          "type": "text",
+                          "id": "pIK0a",
+                          "name": "folderName1",
+                          "fill": "#CCCCCC",
+                          "content": "researcher_webpage",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "bFmD1",
+                      "name": "file1",
+                      "width": "fill_container",
+                      "height": 22,
+                      "fill": "#37373D",
+                      "gap": 6,
+                      "padding": [
+                        0,
+                        28
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "gVW2Z",
+                          "name": "fileIcon1",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "file-code",
+                          "iconFontFamily": "lucide",
+                          "fill": "#519ABA"
+                        },
+                        {
+                          "type": "text",
+                          "id": "kmvYH",
+                          "name": "fileName1",
+                          "fill": "#FFFFFF",
+                          "content": "zhibo_hou.py",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Ji7AD",
+                      "name": "file2",
+                      "width": "fill_container",
+                      "height": 22,
+                      "gap": 6,
+                      "padding": [
+                        0,
+                        28
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "qTAZV",
+                          "name": "fileIcon2",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "file-code",
+                          "iconFontFamily": "lucide",
+                          "fill": "#519ABA"
+                        },
+                        {
+                          "type": "text",
+                          "id": "bgsPn",
+                          "name": "fileName2",
+                          "fill": "#CCCCCC",
+                          "content": "publications.py",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Tocst",
+                      "name": "file3",
+                      "width": "fill_container",
+                      "height": 22,
+                      "gap": 6,
+                      "padding": [
+                        0,
+                        28
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "OCuHl",
+                          "name": "fileIcon3",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "file-code",
+                          "iconFontFamily": "lucide",
+                          "fill": "#519ABA"
+                        },
+                        {
+                          "type": "text",
+                          "id": "4sjvt",
+                          "name": "fileName3",
+                          "fill": "#CCCCCC",
+                          "content": "projects.py",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "EsLtg",
+                      "name": "file4",
+                      "width": "fill_container",
+                      "height": 22,
+                      "gap": 6,
+                      "padding": [
+                        0,
+                        28
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "NSuQr",
+                          "name": "fileIcon4",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "image",
+                          "iconFontFamily": "lucide",
+                          "fill": "#A074C4"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZDlZM",
+                          "name": "fileName4",
+                          "fill": "#CCCCCC",
+                          "content": "profile_photo.png",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JSvKG",
+                      "name": "file5",
+                      "width": "fill_container",
+                      "height": 22,
+                      "gap": 6,
+                      "padding": [
+                        0,
+                        28
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "7nISK",
+                          "name": "fileIcon5",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "file-text",
+                          "iconFontFamily": "lucide",
+                          "fill": "#6D8086"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Zfeuy",
+                          "name": "fileName5",
+                          "fill": "#CCCCCC",
+                          "content": "README.md",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "RFjCp",
+              "name": "Content Area",
+              "width": "fill_container",
+              "height": "fill_container",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "6kyAZ",
+                  "name": "Editor Pane",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#1E1E1E",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "JBprJ",
+                      "name": "Tab Bar",
+                      "width": "fill_container",
+                      "height": 35,
+                      "fill": "#252526",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "qPTAK",
+                          "name": "activeTab",
+                          "height": "fill_container",
+                          "fill": "#1E1E1E",
+                          "gap": 8,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "4vtCi",
+                              "name": "tabIcon",
+                              "width": 14,
+                              "height": 14,
+                              "iconFontName": "file-code",
+                              "iconFontFamily": "lucide",
+                              "fill": "#519ABA"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ZbTI1",
+                              "name": "tabName",
+                              "fill": "#FFFFFF",
+                              "content": "zhibo_hou.py",
+                              "fontFamily": "JetBrains Mono",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "icon_font",
+                              "id": "C4rbk",
+                              "name": "tabClose",
+                              "width": 14,
+                              "height": 14,
+                              "iconFontName": "x",
+                              "iconFontFamily": "lucide",
+                              "fill": "#858585"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "wPSer",
+                      "name": "Editor Content",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "jLzWN",
+                          "name": "Scroll Content",
+                          "clip": true,
+                          "width": "fill_container",
+                          "height": "fill_container",
+                          "fill": "#1E1E1E",
+                          "layout": "vertical",
+                          "gap": 32,
+                          "padding": [
+                            32,
+                            40
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "3w1Oi",
+                              "name": "Header Section",
+                              "width": "fill_container",
+                              "gap": 32,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "7AdQW",
+                                  "name": "Photo Frame",
+                                  "metadata": {
+                                    "type": "unsplash",
+                                    "username": "karenzhaocn",
+                                    "link": "https://unsplash.com/@karenzhaocn",
+                                    "author": "Karen Zhao"
+                                  },
+                                  "width": 140,
+                                  "height": 180,
+                                  "fill": {
+                                    "type": "image",
+                                    "enabled": true,
+                                    "url": "./profile.png",
+                                    "mode": "fill"
+                                  },
+                                  "cornerRadius": 4,
+                                  "stroke": {
+                                    "thickness": 3,
+                                    "fill": "#569CD6"
+                                  }
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "irWWE",
+                                  "name": "headerInfo",
+                                  "width": "fill_container",
+                                  "layout": "vertical",
+                                  "gap": 16,
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "vFJbR",
+                                      "name": "nameTitle",
+                                      "fill": "#4EC9B0",
+                                      "content": "Zhibo Hou",
+                                      "fontFamily": "JetBrains Mono",
+                                      "fontSize": 36,
+                                      "fontWeight": "700"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "uts0f",
+                                      "name": "tagline",
+                                      "fill": "#CE9178",
+                                      "content": "Ph.D. Student @ UC Merced | AI Researcher",
+                                      "fontFamily": "JetBrains Mono",
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "zpnvF",
+                                      "name": "contactRow",
+                                      "gap": 24,
+                                      "alignItems": "center",
+                                      "children": [
+                                        {
+                                          "type": "frame",
+                                          "id": "nfgLP",
+                                          "name": "emailLink",
+                                          "gap": 8,
+                                          "alignItems": "center",
+                                          "children": [
+                                            {
+                                              "type": "icon_font",
+                                              "id": "INcjJ",
+                                              "name": "emailIcon",
+                                              "width": 16,
+                                              "height": 16,
+                                              "iconFontName": "mail",
+                                              "iconFontFamily": "lucide",
+                                              "fill": "#569CD6"
+                                            },
+                                            {
+                                              "type": "text",
+                                              "id": "8nRaX",
+                                              "name": "emailText",
+                                              "fill": "#D4D4D4",
+                                              "content": "zhiboh23@gmail.com",
+                                              "fontFamily": "JetBrains Mono",
+                                              "fontSize": 13,
+                                              "fontWeight": "normal"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "frame",
+                                          "id": "GeStn",
+                                          "name": "githubLink",
+                                          "gap": 8,
+                                          "alignItems": "center",
+                                          "children": [
+                                            {
+                                              "type": "icon_font",
+                                              "id": "sZP2U",
+                                              "name": "githubIcon",
+                                              "width": 16,
+                                              "height": 16,
+                                              "iconFontName": "github",
+                                              "iconFontFamily": "lucide",
+                                              "fill": "#569CD6"
+                                            },
+                                            {
+                                              "type": "text",
+                                              "id": "CZMvV",
+                                              "name": "githubText",
+                                              "fill": "#D4D4D4",
+                                              "content": "Akuna23Matata",
+                                              "fontFamily": "JetBrains Mono",
+                                              "fontSize": 13,
+                                              "fontWeight": "normal"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "frame",
+                                          "id": "agaEi",
+                                          "name": "phoneLink",
+                                          "gap": 8,
+                                          "alignItems": "center",
+                                          "children": [
+                                            {
+                                              "type": "icon_font",
+                                              "id": "vgqMy",
+                                              "name": "phoneIcon",
+                                              "width": 16,
+                                              "height": 16,
+                                              "iconFontName": "phone",
+                                              "iconFontFamily": "lucide",
+                                              "fill": "#569CD6"
+                                            },
+                                            {
+                                              "type": "text",
+                                              "id": "gglU7",
+                                              "name": "phoneText",
+                                              "fill": "#D4D4D4",
+                                              "content": "+1-765-337-0244",
+                                              "fontFamily": "JetBrains Mono",
+                                              "fontSize": 13,
+                                              "fontWeight": "normal"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "Dws6f",
+                                      "name": "introParagraph",
+                                      "width": "fill_container",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "1uIFN",
+                                          "name": "intro1",
+                                          "fill": "#D4D4D4",
+                                          "content": "I am a Ph.D. student at UC Merced, advised by Prof. ",
+                                          "lineHeight": 1.6,
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 13,
+                                          "fontWeight": "normal"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "yH9P8",
+                                          "name": "intro2",
+                                          "fill": "#569CD6",
+                                          "content": "Wan Du",
+                                          "lineHeight": 1.6,
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 13,
+                                          "fontWeight": "normal"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "bvi7X",
+                                          "name": "intro3",
+                                          "fill": "#D4D4D4",
+                                          "content": ".",
+                                          "lineHeight": 1.6,
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 13,
+                                          "fontWeight": "normal"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "sschI",
+                                      "name": "introParagraph2",
+                                      "width": "fill_container",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "ZglXa",
+                                          "name": "intro4",
+                                          "fill": "#D4D4D4",
+                                          "content": "My research interests include Reinforcement Learning and LLM Post-Training.",
+                                          "lineHeight": 1.6,
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 13,
+                                          "fontWeight": "normal"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "VM9mg",
+                              "name": "divider1",
+                              "width": "fill_container",
+                              "height": 1,
+                              "fill": "#3C3C3C"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "emx9O",
+                              "name": "Education Section",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 16,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "Sbxrd",
+                                  "name": "eduHeader",
+                                  "gap": 12,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "JfKEQ",
+                                      "name": "eduIcon",
+                                      "width": 24,
+                                      "height": 24,
+                                      "iconFontName": "graduation-cap",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#C586C0"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "FhPLG",
+                                      "name": "eduTitle",
+                                      "fill": "#C586C0",
+                                      "content": "Education",
+                                      "fontFamily": "JetBrains Mono",
+                                      "fontSize": 22,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "TOzqD",
+                                  "name": "eduList",
+                                  "width": "fill_container",
+                                  "layout": "vertical",
+                                  "gap": 16,
+                                  "padding": [
+                                    0,
+                                    0,
+                                    0,
+                                    36
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "frame",
+                                      "id": "s5HF1",
+                                      "name": "edu1",
+                                      "width": "fill_container",
+                                      "layout": "vertical",
+                                      "gap": 4,
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "r5qaG",
+                                          "name": "edu1Title",
+                                          "fill": "#569CD6",
+                                          "content": "University of California, Merced",
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 15,
+                                          "fontWeight": "600"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "JTXea",
+                                          "name": "edu1Degree",
+                                          "fill": "#D4D4D4",
+                                          "content": "Ph.D. Student, Electrical Engineering & Computer Science",
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 13,
+                                          "fontWeight": "normal"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "7okhi",
+                                          "name": "edu1Date",
+                                          "fill": "#858585",
+                                          "content": "Aug. 2024 — Present",
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 12,
+                                          "fontWeight": "normal"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "mKmul",
+                                      "name": "edu2",
+                                      "width": "fill_container",
+                                      "layout": "vertical",
+                                      "gap": 4,
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "1srzi",
+                                          "name": "edu2Title",
+                                          "fill": "#569CD6",
+                                          "content": "Purdue University",
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 15,
+                                          "fontWeight": "600"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "9gywC",
+                                          "name": "edu2Degree",
+                                          "fill": "#D4D4D4",
+                                          "content": "Master of Science in Computer Engineering",
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 13,
+                                          "fontWeight": "normal"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "M0Oao",
+                                          "name": "edu2Date",
+                                          "fill": "#858585",
+                                          "content": "Aug. 2021 — Aug. 2023",
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 12,
+                                          "fontWeight": "normal"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "rTIi9",
+                                      "name": "edu3",
+                                      "width": "fill_container",
+                                      "layout": "vertical",
+                                      "gap": 4,
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "MxjXl",
+                                          "name": "edu3Title",
+                                          "fill": "#569CD6",
+                                          "content": "Purdue University",
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 15,
+                                          "fontWeight": "600"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "NpgE3",
+                                          "name": "edu3Degree",
+                                          "fill": "#D4D4D4",
+                                          "content": "Bachelor of Science in Computer Engineering",
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 13,
+                                          "fontWeight": "normal"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "C5OHT",
+                                          "name": "edu3Date",
+                                          "fill": "#858585",
+                                          "content": "Aug. 2016 — Dec. 2020",
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 12,
+                                          "fontWeight": "normal"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "jUyVM",
+                              "name": "divider2",
+                              "width": "fill_container",
+                              "height": 1,
+                              "fill": "#3C3C3C"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "SfecO",
+                              "name": "Publications Section",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 16,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "uFB2H",
+                                  "name": "pubHeader",
+                                  "gap": 12,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "lNxuR",
+                                      "name": "pubIcon",
+                                      "width": 24,
+                                      "height": 24,
+                                      "iconFontName": "file-text",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#C586C0"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "WttMC",
+                                      "name": "pubTitle",
+                                      "fill": "#C586C0",
+                                      "content": "Publications",
+                                      "fontFamily": "JetBrains Mono",
+                                      "fontSize": 22,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "0w72y",
+                                  "name": "pubList",
+                                  "width": "fill_container",
+                                  "layout": "vertical",
+                                  "gap": 20,
+                                  "padding": [
+                                    0,
+                                    0,
+                                    0,
+                                    36
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "frame",
+                                      "id": "JXpil",
+                                      "name": "pub1",
+                                      "width": "fill_container",
+                                      "layout": "vertical",
+                                      "gap": 6,
+                                      "children": [
+                                        {
+                                          "type": "frame",
+                                          "id": "gz7S4",
+                                          "name": "pub1Venue",
+                                          "gap": 8,
+                                          "alignItems": "center",
+                                          "children": [
+                                            {
+                                              "type": "frame",
+                                              "id": "NDZWR",
+                                              "name": "pub1Badge",
+                                              "fill": "#264F78",
+                                              "cornerRadius": 4,
+                                              "padding": [
+                                                4,
+                                                8
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "id": "e8aii",
+                                                  "name": "pub1BadgeText",
+                                                  "fill": "#FFFFFF",
+                                                  "content": "ICLR 2026",
+                                                  "fontFamily": "JetBrains Mono",
+                                                  "fontSize": 11,
+                                                  "fontWeight": "600"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "0ecbl",
+                                          "name": "pub1Title",
+                                          "fill": "#DCDCAA",
+                                          "textGrowth": "fixed-width",
+                                          "width": "fill_container",
+                                          "content": "Beyond Noisy-TVs: Noise-Robust Exploration Via Learning Progress Monitoring",
+                                          "lineHeight": 1.4,
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 14,
+                                          "fontWeight": "600"
+                                        },
+                                        {
+                                          "type": "frame",
+                                          "id": "2IOGv",
+                                          "name": "pub1Authors",
+                                          "width": "fill_container",
+                                          "children": [
+                                            {
+                                              "type": "text",
+                                              "id": "8uf72",
+                                              "name": "pub1FirstAuthor",
+                                              "fill": "#4EC9B0",
+                                              "content": "Zhibo Hou",
+                                              "fontFamily": "JetBrains Mono",
+                                              "fontSize": 12,
+                                              "fontWeight": "normal"
+                                            },
+                                            {
+                                              "type": "text",
+                                              "id": "kaprO",
+                                              "name": "pub1OtherAuthors",
+                                              "fill": "#9CDCFE",
+                                              "content": ", Zhiyu An, Wan Du",
+                                              "fontFamily": "JetBrains Mono",
+                                              "fontSize": 12,
+                                              "fontWeight": "normal"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "Jh6Qf",
+                                      "name": "pub2",
+                                      "width": "fill_container",
+                                      "layout": "vertical",
+                                      "gap": 6,
+                                      "children": [
+                                        {
+                                          "type": "frame",
+                                          "id": "ivLSN",
+                                          "name": "pub2Venue",
+                                          "gap": 8,
+                                          "alignItems": "center",
+                                          "children": [
+                                            {
+                                              "type": "frame",
+                                              "id": "avpoE",
+                                              "name": "pub2Badge",
+                                              "fill": "#264F78",
+                                              "cornerRadius": 4,
+                                              "padding": [
+                                                4,
+                                                8
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "id": "MpwlQ",
+                                                  "name": "pub2BadgeText",
+                                                  "fill": "#FFFFFF",
+                                                  "content": "L4DC 2025",
+                                                  "fontFamily": "JetBrains Mono",
+                                                  "fontSize": 11,
+                                                  "fontWeight": "600"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "IOB5f",
+                                          "name": "pub2Title",
+                                          "fill": "#DCDCAA",
+                                          "textGrowth": "fixed-width",
+                                          "width": "fill_container",
+                                          "content": "Disentangling Uncertainties by Learning Compressed Data Representation",
+                                          "lineHeight": 1.4,
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 14,
+                                          "fontWeight": "600"
+                                        },
+                                        {
+                                          "type": "frame",
+                                          "id": "k3sFr",
+                                          "name": "pub2Authors",
+                                          "width": "fill_container",
+                                          "children": [
+                                            {
+                                              "type": "text",
+                                              "id": "Y7Wl8",
+                                              "name": "pub2AuthorsBefore",
+                                              "fill": "#9CDCFE",
+                                              "content": "Zhiyu An, ",
+                                              "fontFamily": "JetBrains Mono",
+                                              "fontSize": 12,
+                                              "fontWeight": "normal"
+                                            },
+                                            {
+                                              "type": "text",
+                                              "id": "fsbWm",
+                                              "name": "pub2MyName",
+                                              "fill": "#4EC9B0",
+                                              "content": "Zhibo Hou",
+                                              "fontFamily": "JetBrains Mono",
+                                              "fontSize": 12,
+                                              "fontWeight": "normal"
+                                            },
+                                            {
+                                              "type": "text",
+                                              "id": "nkBBV",
+                                              "name": "pub2AuthorsAfter",
+                                              "fill": "#9CDCFE",
+                                              "content": ", Wan Du",
+                                              "fontFamily": "JetBrains Mono",
+                                              "fontSize": 12,
+                                              "fontWeight": "normal"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "U2l8R",
+                              "name": "divider3",
+                              "width": "fill_container",
+                              "height": 1,
+                              "fill": "#3C3C3C"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "xRlaa",
+                              "name": "Research Interests Section",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 16,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "zeiAS",
+                                  "name": "interestHeader",
+                                  "gap": 12,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon_font",
+                                      "id": "hNuFj",
+                                      "name": "interestIcon",
+                                      "width": 24,
+                                      "height": 24,
+                                      "iconFontName": "lightbulb",
+                                      "iconFontFamily": "lucide",
+                                      "fill": "#C586C0"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "CNa5B",
+                                      "name": "interestTitle",
+                                      "fill": "#C586C0",
+                                      "content": "Research Interests",
+                                      "fontFamily": "JetBrains Mono",
+                                      "fontSize": 22,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "oS6ZN",
+                                  "name": "interestList",
+                                  "width": "fill_container",
+                                  "layout": "vertical",
+                                  "gap": 16,
+                                  "padding": [
+                                    0,
+                                    0,
+                                    0,
+                                    36
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "frame",
+                                      "id": "EObbY",
+                                      "name": "interest1",
+                                      "width": "fill_container",
+                                      "layout": "vertical",
+                                      "gap": 6,
+                                      "children": [
+                                        {
+                                          "type": "frame",
+                                          "id": "wndX7",
+                                          "name": "interest1Title",
+                                          "gap": 8,
+                                          "alignItems": "center",
+                                          "children": [
+                                            {
+                                              "type": "text",
+                                              "id": "xKMVk",
+                                              "name": "interest1Bullet",
+                                              "fill": "#569CD6",
+                                              "content": "▸",
+                                              "fontFamily": "JetBrains Mono",
+                                              "fontSize": 14,
+                                              "fontWeight": "normal"
+                                            },
+                                            {
+                                              "type": "text",
+                                              "id": "sBna1",
+                                              "name": "interest1Name",
+                                              "fill": "#4EC9B0",
+                                              "content": "Reinforcement Learning",
+                                              "fontFamily": "JetBrains Mono",
+                                              "fontSize": 15,
+                                              "fontWeight": "600"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "UFazW",
+                                          "name": "interest1Desc",
+                                          "fill": "#D4D4D4",
+                                          "textGrowth": "fixed-width",
+                                          "width": "fill_container",
+                                          "content": "Focus on efficient exploration in complex, sparse-reward, and noisy environments through intrinsic motivation signals.",
+                                          "lineHeight": 1.5,
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 13,
+                                          "fontWeight": "normal"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "7uKUf",
+                                      "name": "interest2",
+                                      "width": "fill_container",
+                                      "layout": "vertical",
+                                      "gap": 6,
+                                      "children": [
+                                        {
+                                          "type": "frame",
+                                          "id": "aKkJV",
+                                          "name": "interest2Title",
+                                          "gap": 8,
+                                          "alignItems": "center",
+                                          "children": [
+                                            {
+                                              "type": "text",
+                                              "id": "WgkdN",
+                                              "name": "interest2Bullet",
+                                              "fill": "#569CD6",
+                                              "content": "▸",
+                                              "fontFamily": "JetBrains Mono",
+                                              "fontSize": 14,
+                                              "fontWeight": "normal"
+                                            },
+                                            {
+                                              "type": "text",
+                                              "id": "UViRB",
+                                              "name": "interest2Name",
+                                              "fill": "#4EC9B0",
+                                              "content": "Large Language Model Post-Training",
+                                              "fontFamily": "JetBrains Mono",
+                                              "fontSize": 15,
+                                              "fontWeight": "600"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "WFnVg",
+                                          "name": "interest2Desc",
+                                          "fill": "#D4D4D4",
+                                          "textGrowth": "fixed-width",
+                                          "width": "fill_container",
+                                          "content": "Focus on LLM post-training methods, including reinforcement learning with human feedback (RLHF) and reinforcement learning via verifiable reward (RLVR).",
+                                          "lineHeight": 1.5,
+                                          "fontFamily": "JetBrains Mono",
+                                          "fontSize": 13,
+                                          "fontWeight": "normal"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "uTj38",
+                  "name": "Chat Panel",
+                  "width": 380,
+                  "height": "fill_container",
+                  "fill": "#1E1E1E",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#3C3C3C"
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Ozwmz",
+                      "name": "chatHeader",
+                      "width": "fill_container",
+                      "height": 48,
+                      "fill": "#252526",
+                      "padding": [
+                        0,
+                        16
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "JpFK8",
+                          "name": "chatTitle",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "QrBAD",
+                              "name": "chatIcon",
+                              "width": 18,
+                              "height": 18,
+                              "iconFontName": "sparkles",
+                              "iconFontFamily": "lucide",
+                              "fill": "#C586C0"
+                            },
+                            {
+                              "type": "text",
+                              "id": "b9ksJ",
+                              "name": "chatTitleText",
+                              "fill": "#FFFFFF",
+                              "content": "AI Research Assistant",
+                              "fontFamily": "JetBrains Mono",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "JTF8P",
+                          "name": "chatStatus",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "ellipse",
+                              "id": "7sH2n",
+                              "name": "statusDot",
+                              "fill": "#4EC9B0",
+                              "width": 8,
+                              "height": 8
+                            },
+                            {
+                              "type": "text",
+                              "id": "KihxT",
+                              "name": "statusText",
+                              "fill": "#4EC9B0",
+                              "content": "Online",
+                              "fontFamily": "JetBrains Mono",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Tupd8",
+                      "name": "Messages Area",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 16,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "5LImX",
+                          "name": "assistantMsg1",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "7XAom",
+                              "name": "assistantAvatar1",
+                              "width": 32,
+                              "height": 32,
+                              "fill": "#C586C0",
+                              "cornerRadius": 4,
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "AENgH",
+                                  "name": "assistantIcon1",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "bot",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#FFFFFF"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "1Sg0k",
+                              "name": "assistantBubble1",
+                              "width": "fill_container",
+                              "fill": "#2D2D2D",
+                              "cornerRadius": 8,
+                              "layout": "vertical",
+                              "gap": 8,
+                              "padding": 12,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "k34Rx",
+                                  "name": "assistantText1",
+                                  "fill": "#D4D4D4",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Hello! I'm your AI research assistant. I can help you explore papers, explain concepts, or discuss your research ideas. What would you like to know?",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "JetBrains Mono",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QUraJ",
+                          "name": "userMsg1",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "justifyContent": "end",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "jKw34",
+                              "name": "userBubble1",
+                              "fill": "#264F78",
+                              "cornerRadius": 8,
+                              "layout": "vertical",
+                              "gap": 8,
+                              "padding": 12,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "nPl1t",
+                                  "name": "userText1",
+                                  "fill": "#FFFFFF",
+                                  "textGrowth": "fixed-width",
+                                  "width": 260,
+                                  "content": "Can you explain the attention mechanism in transformers?",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "JetBrains Mono",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "zcyvs",
+                              "name": "userAvatar1",
+                              "width": 32,
+                              "height": 32,
+                              "fill": "#569CD6",
+                              "cornerRadius": 4,
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "w1xrb",
+                                  "name": "userIcon1",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "user",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#FFFFFF"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "daZ14",
+                          "name": "assistantMsg2",
+                          "width": "fill_container",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Vk4GA",
+                              "name": "assistantAvatar2",
+                              "width": 32,
+                              "height": 32,
+                              "fill": "#C586C0",
+                              "cornerRadius": 4,
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "StnNW",
+                                  "name": "assistantIcon2",
+                                  "width": 18,
+                                  "height": 18,
+                                  "iconFontName": "bot",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#FFFFFF"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "3epUB",
+                              "name": "assistantBubble2",
+                              "width": "fill_container",
+                              "fill": "#2D2D2D",
+                              "cornerRadius": 8,
+                              "layout": "vertical",
+                              "gap": 8,
+                              "padding": 12,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "0MmD0",
+                                  "name": "assistantText2",
+                                  "fill": "#D4D4D4",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "The attention mechanism allows the model to focus on different parts of the input sequence when producing each output. It computes:\n\nAttention(Q,K,V) = softmax(QK^T/√d)V\n\nWhere Q, K, V are query, key, and value matrices.",
+                                  "lineHeight": 1.5,
+                                  "fontFamily": "JetBrains Mono",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "6uHbB",
+                      "name": "Input Area",
+                      "width": "fill_container",
+                      "fill": "#252526",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 16,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "qvc4k",
+                          "name": "inputRow",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "qWi5r",
+                              "name": "inputField",
+                              "width": "fill_container",
+                              "height": 44,
+                              "fill": "#3C3C3C",
+                              "cornerRadius": 8,
+                              "gap": 8,
+                              "padding": [
+                                0,
+                                16
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "b2DoS",
+                                  "name": "inputPlaceholder",
+                                  "fill": "#858585",
+                                  "content": "Ask me anything about AI research...",
+                                  "fontFamily": "JetBrains Mono",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "4oJMg",
+                              "name": "sendButton",
+                              "width": 44,
+                              "height": 44,
+                              "fill": "#C586C0",
+                              "cornerRadius": 8,
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "FtTEx",
+                                  "name": "sendIcon",
+                                  "width": 20,
+                                  "height": 20,
+                                  "iconFontName": "send",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#FFFFFF"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "UJTT5",
+                          "name": "suggestionsRow",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "L4Kd0",
+                              "name": "suggestion1",
+                              "height": 28,
+                              "fill": "#3C3C3C",
+                              "cornerRadius": 14,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "2QbPC",
+                                  "name": "suggestion1Text",
+                                  "fill": "#D4D4D4",
+                                  "content": "📚 Papers",
+                                  "fontFamily": "JetBrains Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "c2ezM",
+                              "name": "suggestion2",
+                              "height": 28,
+                              "fill": "#3C3C3C",
+                              "cornerRadius": 14,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "pZ49w",
+                                  "name": "suggestion2Text",
+                                  "fill": "#D4D4D4",
+                                  "content": "🔬 Methods",
+                                  "fontFamily": "JetBrains Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "l7Xmg",
+                              "name": "suggestion3",
+                              "height": 28,
+                              "fill": "#3C3C3C",
+                              "cornerRadius": 14,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Wc0xy",
+                                  "name": "suggestion3Text",
+                                  "fill": "#D4D4D4",
+                                  "content": "💡 Ideas",
+                                  "fontFamily": "JetBrains Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QtwAp",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 24,
+          "fill": "#007ACC",
+          "padding": [
+            0,
+            12
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Rxd4o",
+              "name": "statusLeft",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "9Inj4",
+                  "name": "gitBranch",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "1sp31",
+                      "name": "gitIcon",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "git-branch",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "text",
+                      "id": "04OZh",
+                      "name": "gitText",
+                      "fill": "#FFFFFF",
+                      "content": "main",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "icon_font",
+                  "id": "Zbjxh",
+                  "name": "syncIcon",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "refresh-cw",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "frame",
+                  "id": "NeF2F",
+                  "name": "errorsWarnings",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "SmP9k",
+                      "name": "errorIcon",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "circle-x",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "text",
+                      "id": "O3PSD",
+                      "name": "errorText",
+                      "fill": "#FFFFFF",
+                      "content": "0",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "lFDXf",
+                      "name": "warnIcon",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "triangle-alert",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "text",
+                      "id": "mnXub",
+                      "name": "warnText",
+                      "fill": "#FFFFFF",
+                      "content": "0",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "fQHpa",
+              "name": "statusRight",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "idOjM",
+                  "name": "lineCol",
+                  "fill": "#FFFFFF",
+                  "content": "Ln 24, Col 1",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ZJ8hs",
+                  "name": "spaces",
+                  "fill": "#FFFFFF",
+                  "content": "Spaces: 4",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "aP39g",
+                  "name": "encoding",
+                  "fill": "#FFFFFF",
+                  "content": "UTF-8",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "h7Cew",
+                  "name": "langMode",
+                  "fill": "#FFFFFF",
+                  "content": "Python",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
