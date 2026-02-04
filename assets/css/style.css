@@ -322,8 +322,8 @@ a {
 }
 
 .photo-frame {
-  width: 140px;
-  height: 180px;
+  width: 200px;
+  height: 260px;
   border-radius: 4px;
   border: 3px solid var(--accent-blue);
   overflow: hidden;
