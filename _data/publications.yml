@@ -1,6 +1,7 @@
 # Publications Data
 # total_citations is updated automatically by GitHub Actions
-total_citations: 128
+# This is a fallback value - the live citation counter will fetch from Google Scholar
+total_citations: 3
 
 papers:
   - title: "Beyond Noisy-TVs: Noise-Robust Exploration Via Learning Progress Monitoring"

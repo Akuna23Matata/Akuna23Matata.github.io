@@ -104,10 +104,26 @@ class ViewCounter {
   async init() {
     try {
       const count = await this.getAndIncrementCount();
-      this.displayCount(count);
+      if (count !== null && count !== undefined) {
+        this.displayCount(count);
+      } else {
+        // Try to get without incrementing
+        const getCount = await this.getCountOnly();
+        if (getCount !== null && getCount !== undefined) {
+          this.displayCount(getCount);
+        } else {
+          this.viewCountElement.textContent = 'Loading...';
+        }
+      }
     } catch (error) {
       console.error('Failed to fetch view count:', error);
-      this.viewCountElement.textContent = '—';
+      // Try alternative: use localStorage as fallback
+      const localCount = this.getLocalCount();
+      if (localCount > 0) {
+        this.displayCount(localCount);
+      } else {
+        this.viewCountElement.textContent = '—';
+      }
     }
   }
   
@@ -116,16 +132,51 @@ class ViewCounter {
     const url = `https://api.countapi.xyz/hit/${CONFIG.countApiNamespace}/${CONFIG.countApiKey}`;
     
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, { 
+        method: 'GET',
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
-      return data.value;
+      if (data.value !== undefined) {
+        // Store in localStorage as backup
+        localStorage.setItem('viewCount', data.value.toString());
+        return data.value;
+      }
+      return null;
     } catch (error) {
-      // Fallback: try to just get the count without incrementing
-      const getUrl = `https://api.countapi.xyz/get/${CONFIG.countApiNamespace}/${CONFIG.countApiKey}`;
-      const response = await fetch(getUrl);
-      const data = await response.json();
-      return data.value || 0;
+      console.warn('CountAPI hit failed, trying get only:', error);
+      return null;
     }
+  }
+  
+  async getCountOnly() {
+    const getUrl = `https://api.countapi.xyz/get/${CONFIG.countApiNamespace}/${CONFIG.countApiKey}`;
+    try {
+      const response = await fetch(getUrl, {
+        method: 'GET',
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!response.ok) throw new Error('Network response was not ok');
+      const data = await response.json();
+      if (data.value !== undefined) {
+        localStorage.setItem('viewCount', data.value.toString());
+        return data.value;
+      }
+      return null;
+    } catch (error) {
+      console.warn('CountAPI get failed:', error);
+      return null;
+    }
+  }
+  
+  getLocalCount() {
+    const stored = localStorage.getItem('viewCount');
+    if (stored) {
+      const count = parseInt(stored, 10);
+      return isNaN(count) ? 0 : count;
+    }
+    return 0;
   }
   
   displayCount(count) {
@@ -133,6 +184,129 @@ class ViewCounter {
       // Format number (e.g., 1200 -> 1.2k)
       const formatted = this.formatNumber(count);
       this.viewCountElement.textContent = `${formatted} views`;
+    }
+  }
+  
+  formatNumber(num) {
+    if (num >= 1000000) {
+      return (num / 1000000).toFixed(1) + 'm';
+    }
+    if (num >= 1000) {
+      return (num / 1000).toFixed(1) + 'k';
+    }
+    return num.toString();
+  }
+}
+
+// ==================== Citation Counter ====================
+class CitationCounter {
+  constructor() {
+    this.citationElement = document.getElementById('citationCount');
+    this.scholarId = this.getScholarId();
+    this.init();
+  }
+  
+  getScholarId() {
+    // Try to get from a data attribute or config
+    const dataElement = document.getElementById('scholarIdData');
+    if (dataElement) {
+      return dataElement.textContent.trim();
+    }
+    return null;
+  }
+  
+  async init() {
+    if (!this.scholarId || this.scholarId === 'YOUR_GOOGLE_SCHOLAR_ID') {
+      // Show infinity symbol when Scholar ID is not configured
+      this.citationElement.textContent = '∞ Citations';
+      return;
+    }
+    
+    try {
+      const citations = await this.fetchCitations();
+      if (citations !== null && citations !== undefined && citations >= 0) {
+        this.displayCitations(citations);
+        // Cache the result
+        localStorage.setItem('citationCount', citations.toString());
+        localStorage.setItem('citationCountTime', Date.now().toString());
+      } else {
+        // Try to use cached value if recent (less than 24 hours old)
+        const cached = this.getCachedCitations();
+        if (cached > 0) {
+          this.displayCitations(cached);
+        } else {
+          // Show infinity symbol when fetch fails and no valid cache
+          this.citationElement.textContent = '∞ Citations';
+        }
+      }
+    } catch (error) {
+      console.error('Failed to fetch citations:', error);
+      const cached = this.getCachedCitations();
+      if (cached > 0) {
+        this.displayCitations(cached);
+      } else {
+        // Show infinity symbol when fetch fails and no valid cache
+        this.citationElement.textContent = '∞ Citations';
+      }
+    }
+  }
+  
+  async fetchCitations() {
+    // Using a CORS proxy to fetch Google Scholar data
+    // Note: This is a public proxy service - for production, use your own proxy or API
+    const proxyUrl = 'https://api.allorigins.win/raw?url=';
+    const scholarUrl = `https://scholar.google.com/citations?user=${this.scholarId}&hl=en`;
+    
+    try {
+      const response = await fetch(proxyUrl + encodeURIComponent(scholarUrl), {
+        method: 'GET',
+        headers: { 'Accept': 'text/html' }
+      });
+      
+      if (!response.ok) throw new Error('Network response was not ok');
+      
+      const html = await response.text();
+      // Parse citations from Google Scholar HTML
+      // Look for pattern like "Cited by 128" or similar
+      const citedByMatch = html.match(/Cited by\s*(\d+)/i);
+      if (citedByMatch && citedByMatch[1]) {
+        return parseInt(citedByMatch[1], 10);
+      }
+      
+      // Alternative pattern: look for citation count in meta or structured data
+      const citationMatch = html.match(/"citation_count":(\d+)/i) || 
+                           html.match(/Citations[^:]*:\s*(\d+)/i);
+      if (citationMatch && citationMatch[1]) {
+        return parseInt(citationMatch[1], 10);
+      }
+      
+      return null;
+    } catch (error) {
+      console.warn('Citation fetch failed:', error);
+      return null;
+    }
+  }
+  
+  getCachedCitations() {
+    const cachedTime = localStorage.getItem('citationCountTime');
+    if (cachedTime) {
+      const age = Date.now() - parseInt(cachedTime, 10);
+      // Use cache if less than 24 hours old
+      if (age < 24 * 60 * 60 * 1000) {
+        const cached = localStorage.getItem('citationCount');
+        if (cached) {
+          const count = parseInt(cached, 10);
+          return isNaN(count) ? 0 : count;
+        }
+      }
+    }
+    return 0;
+  }
+  
+  displayCitations(count) {
+    if (this.citationElement) {
+      const formatted = this.formatNumber(count);
+      this.citationElement.textContent = `${formatted} Citations`;
     }
   }
   
@@ -291,6 +465,16 @@ class SidebarNavigation {
   }
 }
 
+// ==================== Update Current Date ====================
+function updateCurrentDate() {
+  const dateElement = document.getElementById('currentDate');
+  if (dateElement) {
+    const now = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    dateElement.textContent = now.toLocaleDateString('en-US', options);
+  }
+}
+
 // ==================== Initialize Everything ====================
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize components
@@ -298,6 +482,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.viewCounter = new ViewCounter();
   window.weatherDisplay = new WeatherDisplay();
   window.sidebarNav = new SidebarNavigation();
+  window.citationCounter = new CitationCounter();
+  
+  // Update current date
+  updateCurrentDate();
   
   // Initialize Lucide icons
   if (typeof lucide !== 'undefined') {

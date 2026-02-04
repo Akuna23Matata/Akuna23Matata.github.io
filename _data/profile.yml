@@ -4,8 +4,11 @@ tagline: "Ph.D. Student @ UC Merced | AI Researcher"
 
 bio: "I am a second year Ph.D. student in the EECS department at UC Merced, advised by Prof. Wan Du. My research interests include Reinforcement Learning and LLM Post-Training."
 
-# Google Scholar ID for citation scraping (update with your actual ID)
-scholar_id: "YOUR_GOOGLE_SCHOLAR_ID"
+# Favorite movie this year
+favorite_movie: "山河故人"
+
+# Google Scholar ID for citation scraping
+scholar_id: "nbavsuoAAAAJ"
 
 # Contact Links
 links:
