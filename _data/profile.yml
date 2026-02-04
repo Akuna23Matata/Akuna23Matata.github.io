@@ -2,7 +2,7 @@
 name: "Zhibo Hou"
 tagline: "Ph.D. Student @ UC Merced | AI Researcher"
 
-bio: "I am a second year Ph.D. student in the EECS department at UC Merced, advised by Prof. Wan Du. My research interests include Reinforcement Learning and LLM Post-Training."
+bio: "I am a second year Ph.D. student in the EECS department at UC Merced, advised by Prof. Wan Du. My research explores LLM Post-Training and Reinforcement Learning, specifically investigating how human feedback (RLHF) and verifiable rewards (RLVR) can create more intelligent, trustworthy, and reason-oriented AI systems."
 
 # Google Scholar ID for citation scraping (update with your actual ID)
 scholar_id: "YOUR_GOOGLE_SCHOLAR_ID"
