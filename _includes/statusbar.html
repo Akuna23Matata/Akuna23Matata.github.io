@@ -1,0 +1,44 @@
+<!-- Status Bar -->
+<footer class="status-bar">
+  <!-- Left Side -->
+  <div class="status-left">
+    <!-- Theme Selector -->
+    <button class="status-item theme-selector" id="themeSelector">
+      <i data-lucide="palette"></i>
+      <span>Theme: <span id="currentTheme">Dark</span></span>
+    </button>
+    
+    <!-- Weather -->
+    <div class="status-item weather-info" id="weatherInfo">
+      <i data-lucide="cloud-sun"></i>
+      <span id="weatherText">Loading...</span>
+    </div>
+    
+    <!-- Views -->
+    <div class="status-item views-info">
+      <i data-lucide="users"></i>
+      <span id="viewCount">Loading...</span>
+    </div>
+  </div>
+  
+  <!-- Right Side -->
+  <div class="status-right">
+    <!-- Publications Count -->
+    <div class="status-item">
+      <i data-lucide="file-text"></i>
+      <span>{{ site.data.publications.papers.size }} Publications</span>
+    </div>
+    
+    <!-- Citations -->
+    <div class="status-item">
+      <i data-lucide="quote"></i>
+      <span id="citationCount">{{ site.data.publications.total_citations }} Citations</span>
+    </div>
+    
+    <!-- Credit -->
+    <div class="status-item">
+      <i data-lucide="sparkles"></i>
+      <span>Vibe coded by Zhibo Hou</span>
+    </div>
+  </div>
+</footer>

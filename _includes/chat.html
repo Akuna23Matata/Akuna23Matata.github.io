@@ -1,0 +1,48 @@
+<!-- Chat Panel -->
+<aside class="chat-panel">
+  <!-- Chat Header -->
+  <div class="chat-header">
+    <div class="chat-title">
+      <i data-lucide="sparkles" class="chat-icon"></i>
+      <span>Zhibo's AI Assistant</span>
+    </div>
+    <div class="chat-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Online</span>
+    </div>
+  </div>
+  
+  <!-- Messages Area -->
+  <div class="messages-area" id="messagesArea">
+    <!-- Initial Assistant Message -->
+    <div class="message assistant-message">
+      <div class="avatar assistant-avatar">
+        <i data-lucide="bot"></i>
+      </div>
+      <div class="bubble assistant-bubble">
+        <p>Hello! I'm Zhibo's AI assistant. I can help you learn about his research, publications, education background, and recent updates. Feel free to ask me anything!</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Input Area -->
+  <div class="input-area">
+    <div class="input-row">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything about AI research...">
+      <button class="send-button" id="sendButton">
+        <i data-lucide="send"></i>
+      </button>
+    </div>
+    
+    <div class="suggestions-row">
+      <button class="suggestion-chip" data-query="publications">📚 Papers</button>
+      <button class="suggestion-chip" data-query="research">🔬 Research</button>
+      <button class="suggestion-chip" data-query="contact">💡 Contact</button>
+    </div>
+  </div>
+</aside>
+
+<!-- Chat Responses Data (rendered by Jekyll from YAML) -->
+<script id="chatResponsesData" type="application/json">
+{{ site.data.chat_responses | jsonify }}
+</script>

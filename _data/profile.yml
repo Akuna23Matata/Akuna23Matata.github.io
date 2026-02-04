@@ -1,0 +1,20 @@
+# Profile Information
+name: "Zhibo Hou"
+tagline: "Ph.D. Student @ UC Merced | AI Researcher"
+
+bio: "I am a second year Ph.D. student in the EECS department at UC Merced, advised by Prof. Wan Du. My research interests include Reinforcement Learning and LLM Post-Training."
+
+# Google Scholar ID for citation scraping (update with your actual ID)
+scholar_id: "YOUR_GOOGLE_SCHOLAR_ID"
+
+# Contact Links
+links:
+  - icon: "mail"
+    text: "zhiboh23@gmail.com"
+    url: "mailto:zhiboh23@gmail.com"
+  - icon: "github"
+    text: "Akuna23Matata"
+    url: "https://github.com/Akuna23Matata"
+  - icon: "phone"
+    text: "+1-765-337-0244"
+    url: "tel:+17653370244"

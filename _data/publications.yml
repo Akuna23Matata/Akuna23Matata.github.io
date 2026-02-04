@@ -1,0 +1,30 @@
+# Publications Data
+# total_citations is updated automatically by GitHub Actions
+total_citations: 128
+
+papers:
+  - title: "Beyond Noisy-TVs: Noise-Robust Exploration Via Learning Progress Monitoring"
+    badge_text: "ICLR 2026"
+    badge_color: "#264F78"
+    year: 2026
+    authors:
+      - name: "Zhibo Hou"
+        highlight: true
+      - name: "Zhiyu An"
+        highlight: false
+      - name: "Wan Du"
+        highlight: false
+    url: ""  # Add paper URL when available
+
+  - title: "Disentangling Uncertainties by Learning Compressed Data Representation"
+    badge_text: "L4DC 2025"
+    badge_color: "#264F78"
+    year: 2025
+    authors:
+      - name: "Zhiyu An"
+        highlight: false
+      - name: "Zhibo Hou"
+        highlight: true
+      - name: "Wan Du"
+        highlight: false
+    url: ""  # Add paper URL when available

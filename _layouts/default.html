@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <div class="app-overlay">
+    <!-- VS Code Window -->
+    <div class="vscode-window">
+      <!-- Title Bar -->
+      <header class="title-bar">
+        <div class="traffic-lights">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <span class="title-text">Akuna23Matata.github.io</span>
+        <div class="spacer"></div>
+      </header>
+      
+      <!-- Main Area -->
+      <div class="main-area">
+        {% include sidebar.html %}
+        
+        <div class="content-area">
+          {% include editor.html %}
+          <div class="vertical-separator"></div>
+          {% include chat.html %}
+        </div>
+      </div>
+      
+      <!-- Status Bar -->
+      {% include statusbar.html %}
+    </div>
+    
+    <!-- Theme Menu (hidden by default, shown on click) -->
+    <div class="theme-menu" id="themeMenu">
+      <div class="theme-item active" data-theme="dark">
+        <i data-lucide="check"></i>
+        <span>Dark (Default)</span>
+      </div>
+      <div class="theme-item" data-theme="light">
+        <i data-lucide="circle" class="hidden-icon"></i>
+        <span>Light</span>
+      </div>
+      <div class="theme-item" data-theme="high-contrast">
+        <i data-lucide="circle" class="hidden-icon"></i>
+        <span>High Contrast</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- JavaScript -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/chat.js' | relative_url }}"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

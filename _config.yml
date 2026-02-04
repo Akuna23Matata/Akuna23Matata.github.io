@@ -1,0 +1,37 @@
+# Jekyll Configuration for VS Code-themed Personal Website
+title: "Zhibo Hou - AI Researcher"
+description: "Ph.D. Student @ UC Merced | AI Researcher"
+url: "https://akuna23matata.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Theme settings (using minima as base, but we override everything with custom CSS)
+theme: null
+
+# Include files
+include:
+  - _data
+  - assets
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - "*.pen"
+  - README.md
+
+# Default settings
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Plugins (GitHub Pages compatible)
+plugins:
+  - jekyll-seo-tag
