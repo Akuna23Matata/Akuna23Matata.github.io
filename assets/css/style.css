@@ -385,8 +385,11 @@ a {
 
 /* Divider */
 .divider {
+  width: 100%;
   height: 1px;
   background-color: var(--border-color);
+  margin: 16px 0;
+  flex-shrink: 0;
 }
 
 /* Section Headers */
