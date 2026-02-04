@@ -74,7 +74,7 @@
                   "id": "ACD79",
                   "name": "titleText",
                   "fill": "#CCCCCC",
-                  "content": "zhibo_hou.py — VS Code",
+                  "content": "Akuna23Matata.github.io",
                   "fontFamily": "Inter",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -343,6 +343,13 @@
                           "width": "fill_container",
                           "height": 35,
                           "fill": "#252526",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": {
+                              "bottom": 1
+                            },
+                            "fill": "#3C3C3C"
+                          },
                           "children": [
                             {
                               "type": "frame",
@@ -372,7 +379,7 @@
                                   "id": "ZbTI1",
                                   "name": "tabName",
                                   "fill": "#FFFFFF",
-                                  "content": "zhibo_hou.py",
+                                  "content": "Zhibo_Hou.py",
                                   "fontFamily": "JetBrains Mono",
                                   "fontSize": 12,
                                   "fontWeight": "normal"
@@ -1120,15 +1127,25 @@
                     },
                     {
                       "type": "frame",
+                      "id": "beCxq",
+                      "name": "Vertical Separator",
+                      "width": 1,
+                      "height": "fill_container",
+                      "fill": "#454545"
+                    },
+                    {
+                      "type": "frame",
                       "id": "uTj38",
                       "name": "Chat Panel",
                       "width": 380,
                       "height": "fill_container",
-                      "fill": "#1E1E1E",
+                      "fill": "#252526",
                       "stroke": {
-                        "align": "inside",
-                        "thickness": 1,
-                        "fill": "#3C3C3C"
+                        "align": "outside",
+                        "thickness": {
+                          "left": 1
+                        },
+                        "fill": "#808080"
                       },
                       "layout": "vertical",
                       "children": [
@@ -1137,8 +1154,15 @@
                           "id": "Ozwmz",
                           "name": "chatHeader",
                           "width": "fill_container",
-                          "height": 48,
+                          "height": 35,
                           "fill": "#252526",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": {
+                              "bottom": 1
+                            },
+                            "fill": "#3C3C3C"
+                          },
                           "padding": [
                             0,
                             16
@@ -1157,8 +1181,8 @@
                                   "type": "icon_font",
                                   "id": "QrBAD",
                                   "name": "chatIcon",
-                                  "width": 18,
-                                  "height": 18,
+                                  "width": 14,
+                                  "height": 14,
                                   "iconFontName": "sparkles",
                                   "iconFontFamily": "lucide",
                                   "fill": "#C586C0"
@@ -1168,10 +1192,10 @@
                                   "id": "b9ksJ",
                                   "name": "chatTitleText",
                                   "fill": "#FFFFFF",
-                                  "content": "AI Research Assistant",
+                                  "content": "Zhibo's AI Assistant",
                                   "fontFamily": "JetBrains Mono",
-                                  "fontSize": 13,
-                                  "fontWeight": "600"
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
                                 }
                               ]
                             },
@@ -1210,6 +1234,7 @@
                           "name": "Messages Area",
                           "width": "fill_container",
                           "height": "fill_container",
+                          "fill": "#1E1E1E",
                           "layout": "vertical",
                           "gap": 16,
                           "padding": 16,
@@ -1263,7 +1288,7 @@
                                       "fill": "#D4D4D4",
                                       "textGrowth": "fixed-width",
                                       "width": "fill_container",
-                                      "content": "Hello! I'm your AI research assistant. I can help you explore papers, explain concepts, or discuss your research ideas. What would you like to know?",
+                                      "content": "Hello! I'm Zhibo's AI assistant. I can help you learn about his research, publications, education background, and recent updates. Feel free to ask me anything!",
                                       "lineHeight": 1.5,
                                       "fontFamily": "JetBrains Mono",
                                       "fontSize": 13,
@@ -1381,7 +1406,7 @@
                                       "fill": "#D4D4D4",
                                       "textGrowth": "fixed-width",
                                       "width": "fill_container",
-                                      "content": "Here are the latest updates about Zhibo Hou:\n\n• [2026-01] Paper accepted to ICLR 2026: \"Beyond Noisy-TVs: Noise-Robust Exploration Via Learning Progress Monitoring\"\n\n• [2025-08] Started serving as reviewer for AAAI 2026\n\n• [2025-05] Paper accepted to L4DC 2025: \"Disentangling Uncertainties by Learning Compressed Data Representation\"",
+                                      "content": "Here are the latest updates about Zhibo Hou:\n\n• [2026-01] Paper accepted to ICLR 2026: \"Beyond Noisy-TVs: Noise-Robust Exploration Via Learning Progress Monitoring\"\n\n• [2025-05] Paper accepted to L4DC 2025: \"Disentangling Uncertainties by Learning Compressed Data Representation\"",
                                       "lineHeight": 1.5,
                                       "fontFamily": "JetBrains Mono",
                                       "fontSize": 13,
@@ -1639,15 +1664,15 @@
                     },
                     {
                       "type": "frame",
-                      "id": "NeF2F",
-                      "name": "visitCount",
-                      "gap": 8,
+                      "id": "JmHqj",
+                      "name": "visitsGroup",
+                      "fill": "#007ACC",
+                      "gap": 6,
                       "alignItems": "center",
                       "children": [
                         {
                           "type": "icon_font",
-                          "id": "SmP9k",
-                          "name": "visitIcon",
+                          "id": "oC6ca",
                           "width": 14,
                           "height": 14,
                           "iconFontName": "users",
@@ -1656,13 +1681,12 @@
                         },
                         {
                           "type": "text",
-                          "id": "O3PSD",
-                          "name": "visitText",
+                          "id": "0hYZK",
                           "fill": "#FFFFFF",
-                          "content": "1,234 visits",
+                          "content": "1.2k views",
                           "fontFamily": "JetBrains Mono",
                           "fontSize": 12,
-                          "fontWeight": "600"
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -1727,35 +1751,6 @@
                           "name": "citationText",
                           "fill": "#FFFFFF",
                           "content": "128 Citations",
-                          "fontFamily": "JetBrains Mono",
-                          "fontSize": 12,
-                          "fontWeight": "normal"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "aP39g",
-                      "name": "academicStatus",
-                      "gap": 4,
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "icon_font",
-                          "id": "statusIcon",
-                          "name": "statusIcon",
-                          "width": 12,
-                          "height": 12,
-                          "iconFontName": "graduation-cap",
-                          "iconFontFamily": "lucide",
-                          "fill": "#FFFFFF"
-                        },
-                        {
-                          "type": "text",
-                          "id": "statusText",
-                          "name": "statusText",
-                          "fill": "#FFFFFF",
-                          "content": "Ph.D. Student",
                           "fontFamily": "JetBrains Mono",
                           "fontSize": 12,
                           "fontWeight": "normal"
