@@ -27,8 +27,8 @@
   --status-bar: #007ACC;
   --title-bar: #323233;
   
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'SimHei', monospace;
+  --font-sans: 'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'SimHei', sans-serif;
 }
 
 /* Light Theme */
@@ -42,12 +42,24 @@
   --border-color: #E0E0E0;
   --border-light: #CCCCCC;
   
-  --text-primary: #333333;
-  --text-secondary: #555555;
-  --text-muted: #888888;
-  --text-white: #FFFFFF;
+  --text-primary: #1E1E1E;
+  --text-secondary: #292929;
+  --text-muted: #6C6C6C;
+  --text-white: #1E1E1E;
   
+  --accent-blue: #0066CC;
+  --accent-green: #098658;
+  --accent-orange: #A1260D;
+  --accent-purple: #7A3E9D;
+  --accent-yellow: #7A6100;
+  
+  --status-bar: #007ACC;
   --title-bar: #DDDDDD;
+}
+
+/* Light Theme - Author Colors */
+[data-theme="light"] .author {
+  color: #0066CC;
 }
 
 /* High Contrast Theme */
@@ -290,6 +302,11 @@ a {
 
 .tab:hover .tab-close {
   opacity: 1;
+}
+
+/* High Contrast Tab Border */
+[data-theme="high-contrast"] .tab {
+  border: 1px solid #6FC3DF;
 }
 
 /* Editor Content */
