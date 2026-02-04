@@ -69,8 +69,8 @@ class ChatEngine {
   getChipQuery(query) {
     const queries = {
       'publications': 'What are Zhibo\'s publications?',
-      'research': 'What are Zhibo\'s research interests?',
-      'contact': 'How can I contact Zhibo?'
+      'methods': 'What research methods does Zhibo use?',
+      'ideas': 'What are some research ideas or directions?'
     };
     return queries[query] || query;
   }
@@ -238,4 +238,10 @@ class ChatEngine {
 // Initialize chat when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   window.chatEngine = new ChatEngine();
+  
+  // Scroll to bottom to show the latest messages
+  const messagesArea = document.getElementById('messagesArea');
+  if (messagesArea) {
+    messagesArea.scrollTop = messagesArea.scrollHeight;
+  }
 });
