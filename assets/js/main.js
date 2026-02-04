@@ -208,7 +208,33 @@ class SidebarNavigation {
         const section = item.dataset.section;
         this.scrollToSection(section);
         this.setActiveItem(item);
+        // Update URL hash without triggering scroll
+        history.pushState(null, '', `#${section}`);
       });
+    });
+    
+    // Handle initial hash on page load
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      setTimeout(() => {
+        this.scrollToSection(hash);
+        const activeItem = Array.from(this.fileItems).find(item => item.dataset.section === hash);
+        if (activeItem) {
+          this.setActiveItem(activeItem);
+        }
+      }, 100);
+    }
+    
+    // Handle browser back/forward navigation
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        this.scrollToSection(hash);
+        const activeItem = Array.from(this.fileItems).find(item => item.dataset.section === hash);
+        if (activeItem) {
+          this.setActiveItem(activeItem);
+        }
+      }
     });
     
     // Update active item on scroll
@@ -220,7 +246,8 @@ class SidebarNavigation {
   scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section && this.scrollContent) {
-      const offsetTop = section.offsetTop - 32; // Account for padding
+      // Account for title bar (32px) + tab bar (35px) + some extra padding
+      const offsetTop = section.offsetTop - 100;
       this.scrollContent.scrollTo({
         top: offsetTop,
         behavior: 'smooth'

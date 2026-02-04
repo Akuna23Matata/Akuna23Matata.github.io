@@ -305,6 +305,7 @@ a {
   height: 100%;
   padding: 32px 40px;
   overflow-y: auto;
+  scroll-padding-top: 100px; /* Account for fixed headers when scrolling to anchors */
 }
 
 /* ==================== Sections ==================== */
