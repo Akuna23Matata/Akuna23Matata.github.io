@@ -1,0 +1,113 @@
+<!-- Editor Pane -->
+<main class="editor-pane">
+  <!-- Tab Bar -->
+  <div class="tab-bar">
+    <div class="tab active">
+      <i data-lucide="file-code" class="icon-python"></i>
+      <span class="tab-name">Zhibo_Hou.py</span>
+      <i data-lucide="x" class="tab-close"></i>
+    </div>
+  </div>
+  
+  <!-- Editor Content -->
+  <div class="editor-content">
+    <div class="scroll-content">
+      <!-- About Section -->
+      <section id="about" class="section section-about">
+        <div class="header-row">
+          <div class="photo-frame">
+            <img src="{{ '/images/profile.png' | relative_url }}" alt="{{ site.data.profile.name }}">
+          </div>
+          <div class="header-info">
+            <h1 class="name-title">{{ site.data.profile.name }}</h1>
+            <p class="tagline">{{ site.data.profile.tagline }}</p>
+            
+            <div class="contact-row">
+              {% for link in site.data.profile.links %}
+              <a href="{{ link.url }}" class="contact-link" target="_blank" rel="noopener">
+                <i data-lucide="{{ link.icon }}"></i>
+                <span>{{ link.text }}</span>
+              </a>
+              {% endfor %}
+            </div>
+            
+            <p class="intro-paragraph">{{ site.data.profile.bio }}</p>
+          </div>
+        </div>
+      </section>
+      
+      <div class="divider"></div>
+      
+      <!-- Education Section -->
+      <section id="education" class="section section-education">
+        <div class="section-header">
+          <i data-lucide="graduation-cap" class="section-icon"></i>
+          <h2>Education</h2>
+        </div>
+        
+        <div class="section-list">
+          {% for edu in site.data.education %}
+          <div class="list-item">
+            <h3 class="item-title">{{ edu.institution }}</h3>
+            <p class="item-detail">{{ edu.degree }}</p>
+            {% if edu.status %}
+            <p class="item-status">{{ edu.status }}</p>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      
+      <div class="divider"></div>
+      
+      <!-- Publications Section -->
+      <section id="publications" class="section section-publications">
+        <div class="section-header">
+          <i data-lucide="file-text" class="section-icon"></i>
+          <h2>Publications</h2>
+        </div>
+        
+        <div class="section-list publications-list">
+          {% for pub in site.data.publications.papers %}
+          <div class="publication-item">
+            <div class="pub-venue">
+              <span class="pub-badge" style="background-color: {{ pub.badge_color | default: '#264F78' }}">
+                {{ pub.badge_text }}
+              </span>
+            </div>
+            <h3 class="pub-title">{{ pub.title }}</h3>
+            <p class="pub-authors">
+              {% for author in pub.authors %}
+              {% if author.highlight %}
+              <span class="author-highlight">{{ author.name }}</span>{% unless forloop.last %}, {% endunless %}
+              {% else %}
+              <span class="author">{{ author.name }}</span>{% unless forloop.last %}, {% endunless %}
+              {% endif %}
+              {% endfor %}
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      
+      <div class="divider"></div>
+      
+      <!-- Services Section -->
+      <section id="services" class="section section-services">
+        <div class="section-header">
+          <i data-lucide="briefcase" class="section-icon"></i>
+          <h2>Academic Services</h2>
+        </div>
+        
+        <div class="section-list">
+          {% for service in site.data.services %}
+          <div class="list-item">
+            <h3 class="item-title">{{ service.role }}</h3>
+            <p class="item-detail">{{ service.detail }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </div>
+</main>

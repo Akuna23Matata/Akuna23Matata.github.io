@@ -1,0 +1,107 @@
+# Chat Responses for the AI Assistant
+# Each category has patterns (keywords to match) and responses (possible replies)
+
+greetings:
+  patterns:
+    - "hello"
+    - "hi"
+    - "hey"
+    - "greetings"
+    - "good morning"
+    - "good afternoon"
+    - "good evening"
+  responses:
+    - "Hello! I'm Zhibo's AI assistant. How can I help you learn about his research?"
+    - "Hi there! Feel free to ask me about Zhibo's publications, education, or research interests."
+    - "Hey! I'm here to help you learn more about Zhibo Hou. What would you like to know?"
+
+publications:
+  patterns:
+    - "paper"
+    - "papers"
+    - "publication"
+    - "publications"
+    - "research"
+    - "work"
+    - "published"
+  responses:
+    - "Zhibo has published papers on Reinforcement Learning and LLM Post-Training. His latest work 'Beyond Noisy-TVs: Noise-Robust Exploration Via Learning Progress Monitoring' was accepted at ICLR 2026!"
+    - "Here are Zhibo's recent publications:\n\n• ICLR 2026: 'Beyond Noisy-TVs: Noise-Robust Exploration Via Learning Progress Monitoring'\n• L4DC 2025: 'Disentangling Uncertainties by Learning Compressed Data Representation'"
+
+education:
+  patterns:
+    - "education"
+    - "school"
+    - "university"
+    - "degree"
+    - "phd"
+    - "study"
+    - "studied"
+    - "student"
+  responses:
+    - "Zhibo is currently a Ph.D. student at UC Merced, advised by Prof. Wan Du. He previously earned his M.S. and B.S. in Computer Engineering from Purdue University."
+    - "Zhibo's educational journey:\n\n• Ph.D. (Ongoing) - UC Merced, EECS\n• M.S. - Purdue University, Computer Engineering\n• B.S. - Purdue University, Computer Engineering"
+
+contact:
+  patterns:
+    - "contact"
+    - "email"
+    - "reach"
+    - "talk"
+    - "connect"
+    - "phone"
+    - "github"
+  responses:
+    - "You can reach Zhibo at zhiboh23@gmail.com or check out his GitHub at github.com/Akuna23Matata!"
+    - "Here's how to contact Zhibo:\n\n📧 Email: zhiboh23@gmail.com\n💻 GitHub: Akuna23Matata\n📱 Phone: +1-765-337-0244"
+
+interests:
+  patterns:
+    - "interest"
+    - "interests"
+    - "focus"
+    - "area"
+    - "topic"
+    - "reinforcement"
+    - "llm"
+  responses:
+    - "Zhibo's research interests include Reinforcement Learning and LLM Post-Training. He's particularly focused on exploration strategies and uncertainty quantification."
+    - "Zhibo works on:\n\n🤖 Reinforcement Learning - especially noise-robust exploration\n🧠 LLM Post-Training - improving language model capabilities"
+
+advisor:
+  patterns:
+    - "advisor"
+    - "supervisor"
+    - "professor"
+    - "prof"
+    - "wan du"
+  responses:
+    - "Zhibo is advised by Prof. Wan Du at UC Merced. Prof. Du's research focuses on IoT systems, mobile computing, and machine learning."
+
+updates:
+  patterns:
+    - "update"
+    - "updates"
+    - "news"
+    - "recent"
+    - "latest"
+    - "new"
+  responses:
+    - "Here are the latest updates about Zhibo:\n\n• [2026-01] Paper accepted to ICLR 2026: 'Beyond Noisy-TVs'\n• [2025-05] Paper accepted to L4DC 2025: 'Disentangling Uncertainties'"
+
+services:
+  patterns:
+    - "service"
+    - "services"
+    - "reviewer"
+    - "review"
+    - "aaai"
+    - "journal"
+  responses:
+    - "Zhibo serves as a reviewer for several venues:\n\n• Conference Reviewer: AAAI 2026\n• Journal Reviewer: IEEE IoT-J (since 2026)"
+
+fallback:
+  responses:
+    - "I'm not sure about that specific topic, but feel free to ask about Zhibo's research, education, publications, or contact info!"
+    - "I don't have information about that. Try asking about Zhibo's publications, research interests, or education background!"
+    - "Hmm, I'm not sure I understand. You can ask me about Zhibo's papers, academic services, or how to contact him."
