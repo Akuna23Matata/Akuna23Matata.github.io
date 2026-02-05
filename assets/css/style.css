@@ -782,8 +782,6 @@ a {
   left: 12px;
   bottom: 36px;
   width: 220px;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-light);
   border-radius: 4px;
   padding: 4px;
   display: none;
@@ -792,6 +790,12 @@ a {
 
 .theme-menu.visible {
   display: block;
+}
+
+/* Dark Theme Menu */
+.theme-menu {
+  background-color: #252526;
+  border: 1px solid #454545;
 }
 
 .theme-item {
@@ -806,17 +810,17 @@ a {
 }
 
 .theme-item:hover {
-  background-color: var(--bg-active);
+  background-color: #37373D;
 }
 
 .theme-item.active {
-  background-color: var(--bg-active);
+  background-color: #37373D;
 }
 
 .theme-item svg {
   width: 14px;
   height: 14px;
-  color: var(--text-secondary);
+  color: #CCCCCC;
 }
 
 .theme-item .hidden-icon {
@@ -824,8 +828,52 @@ a {
 }
 
 .theme-item span {
-  color: var(--text-secondary);
+  color: #CCCCCC;
   font-size: 12px;
+}
+
+/* Light Theme Menu */
+[data-theme="light"] .theme-menu {
+  background-color: #F3F3F3;
+  border: 1px solid #CCCCCC;
+}
+
+[data-theme="light"] .theme-item:hover {
+  background-color: #E4E4E4;
+}
+
+[data-theme="light"] .theme-item.active {
+  background-color: #E4E4E4;
+}
+
+[data-theme="light"] .theme-item svg {
+  color: #292929;
+}
+
+[data-theme="light"] .theme-item span {
+  color: #292929;
+}
+
+/* High Contrast Theme Menu */
+[data-theme="high-contrast"] .theme-menu {
+  background-color: #0A0A0A;
+  border: 1px solid #6FC3DF;
+}
+
+[data-theme="high-contrast"] .theme-item:hover {
+  background-color: #2A2A2A;
+}
+
+[data-theme="high-contrast"] .theme-item.active {
+  background-color: #2A2A2A;
+}
+
+[data-theme="high-contrast"] .theme-item svg {
+  color: #FFFFFF;
+}
+
+[data-theme="high-contrast"] .theme-item span {
+  color: #FFFFFF;
 }
 
 /* ==================== Scrollbar ==================== */
