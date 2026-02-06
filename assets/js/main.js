@@ -98,7 +98,7 @@ class ThemeSwitcher {
 
 // ==================== View Counter (CounterAPI.dev) ====================
 // Using official CounterAPI JavaScript client library
-// SECURITY NOTE: The API key is visible in client-side JavaScript
+// Documentation: https://counterapi.dev/docs/browser
 
 class ViewCounter {
   constructor() {
@@ -133,7 +133,7 @@ class ViewCounter {
         workspace: CONFIG.counterWorkspace,
         accessToken: CONFIG.counterApiKey,
         timeout: 5000,
-        debug: false
+        debug: true // Enable debug for troubleshooting
       });
       
       console.log('CounterAPI client initialized');
@@ -144,36 +144,40 @@ class ViewCounter {
     }
     
     // Try to increment the counter
-    try {
-      const result = await this.counterClient.up(CONFIG.counterName);
-      console.log('Counter incremented:', result);
-      
-      if (result && result.data) {
-        const count = result.data.up_count || 0;
-        this.displayCount(count);
-        localStorage.setItem('viewCount', count.toString());
-        return;
-      }
-    } catch (error) {
-      console.warn('Failed to increment counter:', error);
-    }
-    
-    // Fallback: try to get current count without incrementing
-    try {
-      const result = await this.counterClient.get(CONFIG.counterName);
-      console.log('Counter retrieved:', result);
-      
-      if (result && result.data) {
-        const count = result.data.up_count || 0;
-        this.displayCount(count);
-        localStorage.setItem('viewCount', count.toString());
-        return;
-      }
-    } catch (error) {
-      console.warn('Failed to get counter:', error);
-    }
-    
-    // Use localStorage as final fallback
+    this.counterClient.up(CONFIG.counterName)
+      .then(result => {
+        console.log('Counter incremented successfully:', result);
+        // According to docs, result.value contains the count
+        if (result && result.value !== undefined) {
+          this.displayCount(result.value);
+          localStorage.setItem('viewCount', result.value.toString());
+        } else {
+          console.warn('Unexpected result format:', result);
+          this.useFallback();
+        }
+      })
+      .catch(error => {
+        console.error('Failed to increment counter:', error);
+        
+        // Try to get without incrementing
+        this.counterClient.get(CONFIG.counterName)
+          .then(result => {
+            console.log('Counter retrieved:', result);
+            if (result && result.value !== undefined) {
+              this.displayCount(result.value);
+              localStorage.setItem('viewCount', result.value.toString());
+            } else {
+              this.useFallback();
+            }
+          })
+          .catch(err => {
+            console.error('Failed to get counter:', err);
+            this.useFallback();
+          });
+      });
+  }
+  
+  useFallback() {
     const localCount = this.getLocalCount();
     if (localCount > 0) {
       this.displayCount(localCount);
