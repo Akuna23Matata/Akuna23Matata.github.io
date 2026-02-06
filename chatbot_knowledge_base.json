@@ -1,0 +1,99 @@
+{
+  "person": {
+    "name": "Zhibo Hou",
+    "name_chinese": "侯智博",
+    "title": "Ph.D. Student @ UC Merced | AI Researcher",
+    "current_position": "Second-year Ph.D. Student",
+    "department": "Electrical Engineering & Computer Science (EECS)",
+    "institution": "University of California, Merced",
+    "advisor": "Prof. Wan Du"
+  },
+  "research": {
+    "primary_areas": [
+      "LLM Post-Training",
+      "Reinforcement Learning"
+    ],
+    "focus": "Investigating how human feedback (RLHF) and verifiable rewards (RLVR) can create more intelligent, trustworthy, and reason-oriented AI systems",
+    "specific_interests": [
+      "Noise-robust exploration in RL",
+      "Learning progress monitoring",
+      "Uncertainty quantification",
+      "Trustworthy AI systems",
+      "RLHF (Reinforcement Learning from Human Feedback)",
+      "RLVR (Reinforcement Learning from Verifiable Rewards)"
+    ]
+  },
+  "education": [
+    {
+      "degree": "Ph.D.",
+      "field": "Electrical Engineering & Computer Science",
+      "institution": "University of California, Merced",
+      "status": "Ongoing",
+      "advisor": "Prof. Wan Du"
+    },
+    {
+      "degree": "M.S.",
+      "field": "Computer Engineering",
+      "institution": "Purdue University",
+      "status": "Completed"
+    },
+    {
+      "degree": "B.S.",
+      "field": "Computer Engineering",
+      "institution": "Purdue University",
+      "status": "Completed"
+    }
+  ],
+  "publications": [
+    {
+      "title": "Beyond Noisy-TVs: Noise-Robust Exploration Via Learning Progress Monitoring",
+      "venue": "ICLR 2026",
+      "year": 2026,
+      "authors": ["Zhibo Hou", "Zhiyu An", "Wan Du"],
+      "first_author": true,
+      "keywords": ["reinforcement learning", "noise-robust exploration", "learning progress monitoring"]
+    },
+    {
+      "title": "Disentangling Uncertainties by Learning Compressed Data Representation",
+      "venue": "L4DC 2025",
+      "year": 2025,
+      "authors": ["Zhiyu An", "Zhibo Hou", "Wan Du"],
+      "first_author": false,
+      "keywords": ["uncertainty quantification", "compressed data representation"]
+    }
+  ],
+  "metrics": {
+    "total_citations": 3,
+    "google_scholar_id": "nbavsuoAAAAJ",
+    "google_scholar_url": "https://scholar.google.com/citations?user=nbavsuoAAAAJ"
+  },
+  "services": [
+    {
+      "role": "Conference Reviewer",
+      "venue": "AAAI 2026",
+      "type": "conference"
+    },
+    {
+      "role": "Journal Reviewer",
+      "venue": "IEEE Internet of Things Journal (IoT-J)",
+      "since": "2026",
+      "type": "journal"
+    }
+  ],
+  "contact": {
+    "email": "zhou6@ucmerced.edu",
+    "github": "Akuna23Matata",
+    "github_url": "https://github.com/Akuna23Matata",
+    "phone": "+1-765-337-0244"
+  },
+  "personal": {
+    "favorite_movie_2026": "山河故人",
+    "favorite_movie_english": "Mountains May Depart"
+  },
+  "common_questions": {
+    "research_focus": "Zhibo's research focuses on LLM Post-Training and Reinforcement Learning, specifically investigating how human feedback (RLHF) and verifiable rewards (RLVR) can create more intelligent, trustworthy, and reason-oriented AI systems.",
+    "recent_work": "His recent work includes 'Beyond Noisy-TVs' accepted at ICLR 2026, which addresses noise-robust exploration in reinforcement learning using learning progress monitoring.",
+    "education_path": "Zhibo earned his B.S. and M.S. in Computer Engineering from Purdue University, and is currently pursuing his Ph.D. in EECS at UC Merced under Prof. Wan Du.",
+    "best_contact": "For academic inquiries, please email Zhibo at zhou6@ucmerced.edu"
+  }
+}

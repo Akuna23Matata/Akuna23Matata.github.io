@@ -15,9 +15,8 @@ const CONFIG = {
   
   // CounterAPI.dev configuration
   // IMPORTANT: This API key is visible in client-side code
-  // Anyone can see and potentially abuse it
   counterApiKey: 'ut_OiyaO4mYIlgdf38eCsQiURaI3XiVKXuQRAhgHpS3',
-  counterTeam: 'zhibo-hous-team-2791',
+  counterWorkspace: 'zhibo-hous-team-2791',
   counterName: 'first-counter-2791'
 };
 
@@ -98,22 +97,23 @@ class ThemeSwitcher {
 }
 
 // ==================== View Counter (CounterAPI.dev) ====================
+// Using official CounterAPI JavaScript client library
 // SECURITY NOTE: The API key is visible in client-side JavaScript
-// This means anyone can see and potentially abuse it
-// CounterAPI.dev should have rate limiting to prevent abuse
-// For sensitive applications, use server-side tracking instead
 
 class ViewCounter {
   constructor() {
     this.viewCountElement = document.getElementById('viewCount');
+    this.counterClient = null;
     this.init();
   }
   
   async init() {
-    // Set a timeout to avoid hanging
-    const timeout = new Promise((_, reject) => 
-      setTimeout(() => reject(new Error('Timeout')), 5000)
-    );
+    // Check if CounterAPI library is loaded
+    if (typeof Counter === 'undefined') {
+      console.error('CounterAPI library not loaded');
+      this.viewCountElement.textContent = '—';
+      return;
+    }
     
     // Check if API key is configured
     if (!CONFIG.counterApiKey || CONFIG.counterApiKey === 'YOUR_API_KEY') {
@@ -127,92 +127,58 @@ class ViewCounter {
       return;
     }
     
+    // Initialize CounterAPI client
     try {
-      const count = await Promise.race([this.getAndIncrementCount(), timeout]);
-      if (count !== null && count !== undefined && count >= 0) {
+      this.counterClient = new Counter({
+        workspace: CONFIG.counterWorkspace,
+        accessToken: CONFIG.counterApiKey,
+        timeout: 5000,
+        debug: false
+      });
+      
+      console.log('CounterAPI client initialized');
+    } catch (error) {
+      console.error('Failed to initialize CounterAPI client:', error);
+      this.viewCountElement.textContent = '—';
+      return;
+    }
+    
+    // Try to increment the counter
+    try {
+      const result = await this.counterClient.up(CONFIG.counterName);
+      console.log('Counter incremented:', result);
+      
+      if (result && result.data) {
+        const count = result.data.up_count || 0;
         this.displayCount(count);
+        localStorage.setItem('viewCount', count.toString());
         return;
       }
     } catch (error) {
-      console.warn('CounterAPI increment failed:', error);
+      console.warn('Failed to increment counter:', error);
     }
     
-    // Try to get without incrementing
+    // Fallback: try to get current count without incrementing
     try {
-      const getCount = await Promise.race([this.getCountOnly(), timeout]);
-      if (getCount !== null && getCount !== undefined && getCount >= 0) {
-        this.displayCount(getCount);
+      const result = await this.counterClient.get(CONFIG.counterName);
+      console.log('Counter retrieved:', result);
+      
+      if (result && result.data) {
+        const count = result.data.up_count || 0;
+        this.displayCount(count);
+        localStorage.setItem('viewCount', count.toString());
         return;
       }
     } catch (error) {
-      console.warn('CounterAPI get failed:', error);
+      console.warn('Failed to get counter:', error);
     }
     
-    // Use localStorage as fallback
+    // Use localStorage as final fallback
     const localCount = this.getLocalCount();
     if (localCount > 0) {
       this.displayCount(localCount);
     } else {
-      // Show placeholder instead of hanging on "Loading..."
       this.viewCountElement.textContent = '—';
-    }
-  }
-  
-  async getAndIncrementCount() {
-    // Using CounterAPI.dev to track visits
-    const url = `https://api.counterapi.dev/v2/${CONFIG.counterTeam}/${CONFIG.counterName}/up`;
-    
-    try {
-      const response = await fetch(url, { 
-        method: 'GET',
-        headers: { 
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${CONFIG.counterApiKey}`
-        }
-      });
-      if (!response.ok) {
-        console.warn('CounterAPI response not ok:', response.status);
-        return null;
-      }
-      const data = await response.json();
-      // CounterAPI.dev returns the count in different formats depending on version
-      const count = data.count || data.value || data;
-      if (count !== undefined && count !== null) {
-        // Store in localStorage as backup
-        localStorage.setItem('viewCount', count.toString());
-        return count;
-      }
-      return null;
-    } catch (error) {
-      console.warn('CounterAPI increment failed:', error);
-      return null;
-    }
-  }
-  
-  async getCountOnly() {
-    const getUrl = `https://api.counterapi.dev/v2/${CONFIG.counterTeam}/${CONFIG.counterName}`;
-    try {
-      const response = await fetch(getUrl, {
-        method: 'GET',
-        headers: { 
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${CONFIG.counterApiKey}`
-        }
-      });
-      if (!response.ok) {
-        console.warn('CounterAPI get response not ok:', response.status);
-        return null;
-      }
-      const data = await response.json();
-      const count = data.count || data.value || data;
-      if (count !== undefined && count !== null) {
-        localStorage.setItem('viewCount', count.toString());
-        return count;
-      }
-      return null;
-    } catch (error) {
-      console.warn('CounterAPI get failed:', error);
-      return null;
     }
   }
   
