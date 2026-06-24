@@ -17,6 +17,19 @@ papers:
         highlight: false
     url: ""  # Add paper URL when available
 
+  - title: "TIME: Information-Theoretic MPPI Exploration for Efficient HVAC Control"
+    badge_text: "BuildSys 2026"
+    badge_color: "#264F78"
+    year: 2026
+    authors:
+      - name: "Zhibo Hou"
+        highlight: true
+      - name: "Zhiyu An"
+        highlight: false
+      - name: "Wan Du"
+        highlight: false
+    url: ""  # Add paper URL when available
+
   - title: "Disentangling Uncertainties by Learning Compressed Data Representation"
     badge_text: "L4DC 2025"
     badge_color: "#264F78"
