@@ -15,7 +15,7 @@ papers:
         highlight: false
       - name: "Wan Du"
         highlight: false
-    url: ""  # Add paper URL when available
+    url: "https://arxiv.org/abs/2509.25438"  # Add paper URL when available
 
   - title: "TIME: Information-Theoretic MPPI Exploration for Efficient HVAC Control"
     badge_text: "BuildSys 2026"
@@ -28,7 +28,7 @@ papers:
         highlight: false
       - name: "Wan Du"
         highlight: false
-    url: ""  # Add paper URL when available
+    url: "https://dl.acm.org/doi/full/10.1145/3744256.3812559"  # Add paper URL when available
 
   - title: "Disentangling Uncertainties by Learning Compressed Data Representation"
     badge_text: "L4DC 2025"
@@ -41,4 +41,4 @@ papers:
         highlight: true
       - name: "Wan Du"
         highlight: false
-    url: ""  # Add paper URL when available
+    url: "https://arxiv.org/abs/2503.15801"  # Add paper URL when available
